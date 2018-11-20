@@ -1,0 +1,102 @@
+<html>
+<link rel="stylesheet" href="css/style.css">
+ <head>
+  <meta charset="UTF-8">
+  <title>Smart Farm actuator control</title>
+  <meta name="viewport" content="width=200, initial-scale=1,maximum-scale=1">
+  <frame src="index2.html">
+ </head>
+
+ <body>
+  <p style="font-family:Arial;font-weight:bold;color:white;font-size:25pt;text-align:center; clear: none; float: center;">Smart Room</p>
+  <div align="center" style="margin: 0 40px 0px 0px">
+
+<ul >
+	<a herf ="#" class="button" onClick="cmd('SMODEON')">SMODE ON</a>
+  <a herf ="#" class="button" onClick="cmd('SLEEPMODEON')">SLEEP ON</a>
+	<a herf ="#" class="button" onClick="cmd('SMODEOFF')">SMODE OFF</a>
+</ul>
+
+<ul >
+	<a herf ="#" class="button" onClick="cmd('FANON')">FAN ON</a>
+	<a herf ="#" class="button" onClick="cmd('FANOFF')">FAN OFF</a>
+</ul>
+
+<ul >
+	<a herf ="#" class="button" onClick="cmd('LEDON')">LED ON</a>
+	<a herf ="#" class="button" onClick="cmd('LEDOFF')">LED OFF</a>
+</ul>
+
+<ul >
+ 	<a herf ="#" class="button" onClick="location.href='http://192.168.0.11/conditions.php';">conditions</a>
+  <a herf ="#" class="button" onClick="location.href='http://192.168.0.11/chart.php';">Chart link</a>
+</ul>
+
+<u1>
+  <style>
+    table
+      {
+        width: 10%;
+        border: 3px solid #444444;
+        color: white;
+        border-collapse: collapse;
+        float: center;
+        margin-left: 40px;
+      }
+  th, td
+      {
+        border: 3px solid #444444;
+        padding: 5px;
+        border-color:white;
+      }
+  </style>
+  <table>
+    <thead>
+      <tr>
+        <th>Temp Level Set</th>
+      </tr>
+    </thead>
+<tbody align="center" style="margin: 0 40px 0px 0px">
+      <tr>
+        <td>
+        	<form oninput="x.value=parseInt(a.value)">
+	        <input type="range" id="a" value="25" min="25" max="45" onClick="cmd(x.value)">
+          <output name="x" style="color:white;"></output>
+          </form>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+</u1>
+
+
+
+
+</div>
+
+
+ <script type="text/javascript">
+ function cmd(value) {
+ 		var str = value;
+ 		alert(str);
+ 	if( window.XMLHttpRequest ) {
+ 	request = new XMLHttpRequest();
+ 	}
+ 	if( !request ) {
+ 	alert("XMLHttpRequest Error");
+	return false;
+
+ 	}
+
+ var send = 'cmd=' + value;
+ request.open('POST','/rccar',true);
+ request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+ request.setRequestHeader('Content-Length', send.length);
+ request.setRequestHeader('Connection', 'close');
+ request.send(send);
+ }
+ </script>
+
+ </body>
+</html>

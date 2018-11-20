@@ -1,0 +1,41 @@
+body {
+    background-image: url(back1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+   font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -86px;
+    margin-left: -89px;
+    text-align: center;
+}
+
+a {
+    -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    display: block;
+    margin: 5px auto;
+    max-width: 90px;
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 12px 18px;
+}
+
+a.button {
+    color: white;
+    box-shadow: white 0 0px 0px 2px inset;
+}
+
+a.button:hover {
+    color: #253e5f;
+    box-shadow: white 0 0px 0px 40px inset;
+}
